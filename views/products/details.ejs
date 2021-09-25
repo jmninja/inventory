@@ -1,0 +1,33 @@
+<%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/nav.ejs') %>
+  <main class="container-fluid position-relative">
+    <div class="row">
+      <div class="col-2">
+        <img src="/images/box.jpg" alt="product-image" class="card-img-top" />
+      </div>
+      <div class="col-10">
+        <p><%= product.price %></p>
+        <p><%= product.numberLeft %></p>
+        <!-- description -->
+        <!-- date stocked -->
+        <!-- pending deliveries -->
+        <!-- analytics -->
+        <a class="delete" data-doc="<%= product._id %>"> delete </a>
+      </div>
+    </div>
+  </main>
+  <script>
+    const trashcan = document.querySelector("a.delete");
+
+    trashcan.addEventListener("click", (e) => {
+      const endpoint = `/products/${trashcan.dataset.doc}`;
+
+      fetch(endpoint, { method: "DELETE" })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect))
+        .catch((err) => console.log(err));
+    });
+  </script>
+  <%- include('../partials/footer.ejs') %>
+</body>

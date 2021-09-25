@@ -1,0 +1,33 @@
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/nav.ejs') %>
+      <main class="container-fluid position-relative" style="display: inline-flex">
+        <!-- prettier-ignore -->
+        <% if(products.length> 0) { %>
+          <% products.forEach(product=> { %>
+            <div class="card" style="width: 18rem">
+              <img src="/images/box.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%=product.name %>
+                </h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content <%= product.numberLeft %>
+                </p>
+                <a href="/products/<%= product._id %>" class="btn btn-primary">
+                  <%= product.price %>
+                </a>
+              </div>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <h5>There are no products to display</h5>
+                <% } %>
+                  <a href="/products/create"><button class="btn btn-primary add-btn position-abosulte top-50">
+                      +
+                    </button></a>
+      </main>
+      <%- include('../partials/footer.ejs') %>
+  </body>

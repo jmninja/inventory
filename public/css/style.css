@@ -1,0 +1,46 @@
+#card-1,
+#card-2 {
+  float: left;
+}
+main {
+  width: max-content;
+  position: relative;
+}
+.add-btn {
+  border-radius: 50%;
+  transition-duration: 0.4s;
+  /* margin-left: -250px; */
+  position: absolute;
+  right: 0;
+}
+.add-btn:hover {
+  background-color: #0d6efd; /* Blue */
+  color: white;
+}
+/* #card-1 {
+  z-index: -1;
+  height: 154.589px;
+  width: 254.016px;
+  background-color: aqua;
+}
+#card-2 {
+  z-index: -2;
+  height: 154.589px;
+  width: 254.016px;
+  background-color: brown;
+} */
+#create-btn {
+  margin-top: 20px;
+  border-radius: 5%;
+}
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 8px;
+}
+.delete:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}

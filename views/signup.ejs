@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+  <link href="/css/form.css" rel="stylesheet">
+  <!-- <link href="/css/dashboard.css" rel="stylesheet">
+  <link href="/css/sigin.css" rel="stylesheet"> -->
+  <title>ixnote services | <%-title %>
+  </title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <form action="" id="form">
+      <div class="title">Get Started</div>
+      <!-- username input here -->
+      <div>
+        <label for="username">Username</label>
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" placeholder="John Doe" id="username">
+        <i class="fas fa-exclamation failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error">
+        </div>
+      </div>
+      <!-- email input here -->
+      <div>
+        <label for="email">Email</label>
+        <i class="far fa-envelope"></i>
+        <input type="email" name="email" placeholder="abc@gmail.com" id="username">
+        <i class="fas fa-exclamation failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+      <!-- password input here -->
+      <div>
+        <label for="password">Password</label>
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" placeholder="password here" id="password">
+        <i class="fas fa-exclamation failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error">
+        </div>
+      </div>
+      <button type="submit" id="submit"> Submit </button>
+    </form>
+  </div>
+
+</body>
+<script src="server.js"></script>
+<script src="app.js"></script>
+
+</html>
