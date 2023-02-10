@@ -8,12 +8,32 @@ const productSchema = new Schema(
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
+      min: [0, "Price must zero"],
+    },
+    category: {
+      type: String,
+      lowercase: true,
+      enum: ["merchandise", "raw materials ", "finished goods"],
     },
     numberLeft: {
       type: String,
       required: true,
+    },
+    onSale: {
+      type: Boolean,
+      default: false,
+    },
+    qty: {
+      online: {
+        type: Number,
+        default: 0,
+      },
+      inStore: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   { timestamps: true }

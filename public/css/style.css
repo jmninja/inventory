@@ -29,9 +29,12 @@ main {
   width: 254.016px;
   background-color: brown;
 } */
-#create-btn {
+#edit-btn {
   margin-top: 20px;
+  background-color: #0d6efd;
   border-radius: 5%;
+  text-decoration: none;
+  color: rgb(202, 54, 54);
 }
 .delete {
   position: absolute;
@@ -39,8 +42,19 @@ main {
   right: 0;
   border-radius: 50%;
   padding: 8px;
+  margin: 0px 6px;
 }
-.delete:hover {
+.edit {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0 6px;
+}
+
+.delete:hover,
+.edit:hover {
   cursor: pointer;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }

@@ -47,6 +47,29 @@ input:focus {
   border: 2px solid #f2796e;
 }
 
+/* social section */
+.btn-1,
+.btn-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #c4c4c4;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.or {
+  text-align: center;
+}
+.question {
+  font-style: 15px;
+}
+
+span {
+  color: #f2796e;
+  cursor: pointer;
+}
+
 /* form icons */
 form > div > i {
   position: absolute;

@@ -1,33 +1,55 @@
 <%- include('../partials/head.ejs') %>
-<body>
-  <%- include('../partials/nav.ejs') %>
-  <main class="container-fluid position-relative">
-    <div class="row">
-      <div class="col-2">
-        <img src="/images/box.jpg" alt="product-image" class="card-img-top" />
-      </div>
-      <div class="col-10">
-        <p><%= product.price %></p>
-        <p><%= product.numberLeft %></p>
-        <!-- description -->
-        <!-- date stocked -->
-        <!-- pending deliveries -->
-        <!-- analytics -->
-        <a class="delete" data-doc="<%= product._id %>"> delete </a>
-      </div>
-    </div>
-  </main>
-  <script>
-    const trashcan = document.querySelector("a.delete");
 
-    trashcan.addEventListener("click", (e) => {
-      const endpoint = `/products/${trashcan.dataset.doc}`;
+  <body>
+    <%- include('../partials/nav.ejs') %>
+      <main class="container-fluid position-relative">
+        <div class="row mt-2 mb-2">
+          <div class="col align-self-start">
+            <div class="card" style="width: 18rem">
+              <img src="/images/box.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%=product.name %>
+                </h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content <%= product.numberLeft %>
+                </p>
+                <a href="/products/<%= product._id %>" class="btn btn-primary">
+                  <%= product.price %>
+                </a>
+              </div>
+            </div>
+          </div>
 
-      fetch(endpoint, { method: "DELETE" })
-        .then((response) => response.json())
-        .then((data) => (window.location.href = data.redirect))
-        .catch((err) => console.log(err));
-    });
-  </script>
-  <%- include('../partials/footer.ejs') %>
-</body>
+
+          <!-- content for the product details -->
+
+          <!-- 
+          
+          description
+          date stocked
+          pending deliveries
+          analytics 
+
+          -->
+          <div class="col align-self-end">
+            <a class="delete" data-doc="<%= product._id %>"><i class="fas fa-trash-alt"></i></a>
+            <a class="edit" href="/products/<%= product._id %>/edit"><i class="fas fa-pencil-alt"></i></a>
+          </div>
+        </div>
+      </main>
+      <script>
+        const trashcan = document.querySelector("a.delete");
+
+        trashcan.addEventListener("click", (e) => {
+          const endpoint = `/products/${trashcan.dataset.doc}`;
+
+          fetch(endpoint, { method: "DELETE" })
+            .then((response) => response.json())
+            .then((data) => (window.location.href = data.redirect))
+            .catch((err) => console.log(err));
+        });
+      </script>
+      <%- include('../partials/footer.ejs') %>
+  </body>

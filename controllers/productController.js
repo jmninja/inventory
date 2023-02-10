@@ -1,5 +1,6 @@
+const { result } = require("lodash");
 const Product = require("../models/product");
-// product_index, product_details, product_create_get, product_delete
+// product_index, product_details, product_create_get, product_delete, product_edit, product_update
 
 const product_index = (req, res) => {
   Product.find()
@@ -55,10 +56,39 @@ const product_delete = (req, res) => {
     });
 };
 
+//edit controller
+const product_edit_get = (req, res) => {
+  const { id } = req.params;
+  Product.findById(id)
+    .then((result) => {
+      res.render("products/edit", { title: "Edit Product", products: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+//update controller
+const product_update_put = (req, res) => {
+  const { id } = req.params;
+  Product.findByIdAndUpdate(id, req.body, {
+    runValidators: true,
+    new: true,
+  })
+    .then((result) => {
+      res.redirect(`/products/${id}`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   product_index,
   product_details,
   product_create_get,
   product_create_post,
   product_delete,
+  product_update_put,
+  product_edit_get,
 };
